@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Boot</key>
+	<dict>
+		<key>Arguments</key>
+		<string>-v dart=0 -xcpm kext-dev-mode=1 nv_disable=1</string>
+	</dict>
+	<key>Graphics</key>
+	<dict>
+		<key>Inject</key>
+		<dict>
+			<key>ATI</key>
+			<true/>
+		</dict>
+		<key>RadeonDeInit</key>
+		<true/>
+	</dict>
+	<key>KernelAndKextPatches</key>
+	<dict>
+		<key>AppleIntelCPUPM</key>
+		<true/>
+		<key>KernelCpu</key>
+		<true/>
+		<key>KernelPm</key>
+		<true/>
+		<key>KernelXCPM</key>
+		<true/>
+	</dict>
+	<key>SMBIOS</key>
+	<dict>
+		<key>BiosReleaseDate</key>
+		<string>04/22/2019</string>
+		<key>BiosVendor</key>
+		<string>Apple Inc.</string>
+		<key>BiosVersion</key>
+		<string>IMP11.88Z.F000.B00.1904222000</string>
+		<key>Board-ID</key>
+		<string>Mac-7BA5B2D9E42DDD94</string>
+		<key>BoardManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>BoardSerialNumber</key>
+		<string>C02729609GUJG36JC</string>
+		<key>BoardType</key>
+		<integer>10</integer>
+		<key>BoardVersion</key>
+		<string>1.0</string>
+		<key>ChassisAssetTag</key>
+		<string>iMacPro-Aluminum</string>
+		<key>ChassisManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>ChassisType</key>
+		<string>0x09</string>
+		<key>EfiVersion</key>
+		<string>220.260.170.0.0</string>
+		<key>Family</key>
+		<string>iMac Pro</string>
+		<key>FirmwareFeatures</key>
+		<string>0xFD8FF53F</string>
+		<key>FirmwareFeaturesMask</key>
+		<string>0xFF9FFF3F</string>
+		<key>LocationInChassis</key>
+		<string>Part Component</string>
+		<key>Manufacturer</key>
+		<string>Apple Inc.</string>
+		<key>Mobile</key>
+		<false/>
+		<key>PlatformFeature</key>
+		<string>0xFFFF</string>
+		<key>ProductName</key>
+		<string>iMacPro1,1</string>
+		<key>SerialNumber</key>
+		<string>C02V306QHX87</string>
+		<key>SmUUID</key>
+		<string>B8247695-0DC7-481A-9293-465CD9CD2217</string>
+		<key>Version</key>
+		<string>1.0</string>
+	</dict>
+	<key>SystemParameters</key>
+	<dict>
+		<key>CustomUUID</key>
+		<string>3C971DDA-DA39-5979-80B4-17156CF476CD</string>
+		<key>InjectKexts</key>
+		<string>Detect</string>
+	</dict>
+</dict>
+</plist>
