@@ -13,49 +13,49 @@
 			<key>Fixes</key>
 			<dict>
 				<key>AddDTGP</key>
-				<true/>
+				<false/>
 				<key>AddMCHC</key>
-				<true/>
+				<false/>
 				<key>AddPNLF</key>
 				<false/>
 				<key>FakeLPC</key>
-				<true/>
+				<false/>
 				<key>FixADP1</key>
 				<false/>
 				<key>FixDarwin</key>
-				<true/>
+				<false/>
 				<key>FixDarwin7</key>
 				<false/>
 				<key>FixDisplay</key>
-				<true/>
+				<false/>
 				<key>FixHDA</key>
 				<false/>
 				<key>FixHPET</key>
-				<true/>
+				<false/>
 				<key>FixIDE</key>
-				<true/>
+				<false/>
 				<key>FixIPIC</key>
 				<false/>
 				<key>FixIntelGfx</key>
 				<false/>
 				<key>FixLAN</key>
-				<true/>
+				<false/>
 				<key>FixMutex</key>
 				<false/>
 				<key>FixRTC</key>
-				<true/>
+				<false/>
 				<key>FixRegions</key>
-				<true/>
+				<false/>
 				<key>FixS3D</key>
-				<true/>
+				<false/>
 				<key>FixSATA</key>
-				<true/>
+				<false/>
 				<key>FixSBUS</key>
-				<true/>
+				<false/>
 				<key>FixShutdown</key>
-				<true/>
+				<false/>
 				<key>FixUSB</key>
-				<true/>
+				<false/>
 				<key>FixWAK</key>
 				<false/>
 			</dict>
@@ -261,23 +261,23 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change GFX0 to IGPU</string>
+					<string>change GPRW to XPRW</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
-					R0ZYMA==
+					R1BSVwI=
 					</data>
 					<key>Replace</key>
 					<data>
-					SUdQVQ==
+					WFBSVwI=
 					</data>
 				</dict>
 			</array>
 			<key>ReuseFFFF</key>
 			<false/>
 			<key>SlpSmiAtWake</key>
-			<true/>
+			<false/>
 			<key>SuspendOverride</key>
 			<false/>
 		</dict>
@@ -294,6 +294,8 @@
 				<key>PluginType</key>
 				<true/>
 			</dict>
+			<key>PluginType</key>
+			<string>1</string>
 		</dict>
 		<key>SortedOrder</key>
 		<array>
@@ -307,7 +309,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-v -xcpm kext-dev-mode=1 nv_disable=1 alcid=5 -gux_defer_usb2 darkwake=8</string>
+		<string>-v -xcpm kext-dev-mode=1 nv_disable=1 alcid=5 -gux_defer_usb2 darkwake=0 -disablegfxfirmware</string>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>XMPDetection</key>
@@ -341,6 +343,8 @@
 		<array>
 			<string>Preboot</string>
 		</array>
+		<key>Theme</key>
+		<string>random</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -389,7 +393,7 @@
 				<key>Comment</key>
 				<string>USB port limit patch #1/4 10.14.x modify by DalianSky (credit ydeng)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g/sPDw==
@@ -429,7 +433,7 @@
 				<key>Comment</key>
 				<string>USB port limit patch #2/4 10.14.x modify by DalianSky (credit PMHeart)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g+MP0w==
@@ -449,7 +453,7 @@
 				<key>Comment</key>
 				<string>USB Port limit patch #3/4 10.14.x modify by DalianSky (credit PMheart)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g/sPDw==
@@ -469,7 +473,7 @@
 				<key>Comment</key>
 				<string>USB Port limit patch #4/4 10.14.x modify by DalianSky (credit PMheart)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g/8PDw==
