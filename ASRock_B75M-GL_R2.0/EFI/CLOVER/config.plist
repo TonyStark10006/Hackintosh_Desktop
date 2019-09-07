@@ -13,54 +13,62 @@
 			<key>Fixes</key>
 			<dict>
 				<key>AddDTGP</key>
-				<false/>
+				<true/>
 				<key>AddMCHC</key>
-				<false/>
+				<true/>
 				<key>AddPNLF</key>
-				<false/>
+				<true/>
+				<key>DeleteUnused</key>
+				<true/>
 				<key>FakeLPC</key>
 				<false/>
+				<key>FixACST</key>
+				<true/>
 				<key>FixADP1</key>
-				<false/>
+				<true/>
 				<key>FixDarwin</key>
-				<false/>
+				<true/>
 				<key>FixDarwin7</key>
-				<false/>
+				<true/>
 				<key>FixDisplay</key>
+				<true/>
+				<key>FixFirewire</key>
 				<false/>
 				<key>FixHDA</key>
 				<false/>
 				<key>FixHPET</key>
 				<false/>
 				<key>FixIDE</key>
-				<false/>
+				<true/>
 				<key>FixIPIC</key>
-				<false/>
+				<true/>
 				<key>FixIntelGfx</key>
 				<false/>
 				<key>FixLAN</key>
-				<false/>
+				<true/>
 				<key>FixMutex</key>
-				<false/>
+				<true/>
 				<key>FixRTC</key>
-				<false/>
+				<true/>
 				<key>FixRegions</key>
-				<false/>
+				<true/>
 				<key>FixS3D</key>
-				<false/>
+				<true/>
 				<key>FixSATA</key>
 				<false/>
 				<key>FixSBUS</key>
-				<false/>
+				<true/>
 				<key>FixShutdown</key>
+				<true/>
+				<key>FixTMR</key>
 				<false/>
 				<key>FixUSB</key>
-				<false/>
+				<true/>
 				<key>FixWAK</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>Name</key>
-			<string>DSDT.aml</string>
+			<string>NO.aml</string>
 			<key>Patches</key>
 			<array>
 				<dict>
@@ -261,9 +269,51 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change GPRW to XPRW</string>
+					<string>change OSID to XSID (to avoid match against _OSI XOSI patch)</string>
 					<key>Disabled</key>
 					<false/>
+					<key>Find</key>
+					<data>
+					T1NJRA==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFNJRA==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change LANC Method(_PRW,0,S) to Method(XPRW,0,..), pair with SSDT-LANCPRW.aml</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					AAAZABQfX1BSVwg=
+					</data>
+					<key>Replace</key>
+					<data>
+					AAAZABQfWFBSVwg=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Method(UPRW,2,N) to XPRW, pair with SSDT-UPRW.aml</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					VVBSVwpwEg==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFBSVwpwEg==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml</string>
+					<key>Disabled</key>
+					<true/>
 					<key>Find</key>
 					<data>
 					R1BSVwI=
@@ -277,25 +327,47 @@
 			<key>ReuseFFFF</key>
 			<false/>
 			<key>SlpSmiAtWake</key>
-			<false/>
+			<true/>
 			<key>SuspendOverride</key>
 			<false/>
 		</dict>
+		<key>DisableASPM</key>
+		<false/>
 		<key>FixHeaders</key>
 		<true/>
+		<key>FixMCFG</key>
+		<false/>
 		<key>HaltEnabler</key>
 		<false/>
 		<key>PatchAPIC</key>
 		<false/>
 		<key>SSDT</key>
 		<dict>
+			<key>C3Latency</key>
+			<string>0x205</string>
+			<key>DoubleFirstState</key>
+			<true/>
+			<key>DropOem</key>
+			<false/>
+			<key>EnableC2</key>
+			<true/>
+			<key>EnableC4</key>
+			<true/>
+			<key>EnableC6</key>
+			<true/>
 			<key>Generate</key>
 			<dict>
+				<key>CStates</key>
+				<true/>
+				<key>PStates</key>
+				<true/>
 				<key>PluginType</key>
 				<true/>
 			</dict>
 			<key>PluginType</key>
 			<string>1</string>
+			<key>UseSystemIO</key>
+			<false/>
 		</dict>
 		<key>SortedOrder</key>
 		<array>
@@ -309,7 +381,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-v -xcpm kext-dev-mode=1 nv_disable=1 alcid=5 -gux_defer_usb2 darkwake=0 -disablegfxfirmware</string>
+		<string>-v -xcpm kext-dev-mode=1 nv_disable=1 alcid=5 darkwake=0 -disablegfxfirmware uia_exclude=HP13,HP17,HP18,HP21,HP22,HP24,HP27,HP28,HS01,HS02,HS03,SSP7,SSP8,PR12,PR13,PR14,PR15,PR16,PR17,PR18,PR22,PR23,PR24,PR25,PR26</string>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>XMPDetection</key>
@@ -343,8 +415,6 @@
 		<array>
 			<string>Preboot</string>
 		</array>
-		<key>Theme</key>
-		<string>random</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -525,40 +595,141 @@
 				AAAAAAAAAAAAAAA=
 				</data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>ATIController TestVRAM boot failure patch</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				VTsMkA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.14.x,10.15.x</string>
+				<key>Name</key>
+				<string>AMDSupport</string>
+				<key>Replace</key>
+				<data>
+				VTnJkA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>ATIController TestVRAM magenta-colored lines patch</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				xwSxqlWqVQ==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.14.x,10.15.x</string>
+				<key>Name</key>
+				<string>AMDSupport</string>
+				<key>Replace</key>
+				<data>
+				kJCQkJCQkA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>fix I/O error for ICH10</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				RYX2D5XCiciD4P5mhcl4D4TSdQs=
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>AppleAHCIPort</string>
+				<key>Replace</key>
+				<data>
+				iciD4P5mhckPmMFBCMyQkJCQdQs=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>fix I/O error for ICH10 hot-plug</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				icglQGACAD1AIAAAdQyB4b9///+Ji1EBAAA=
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>AppleAHCIPort</string>
+				<key>Replace</key>
+				<data>
+				kJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>External Icons Patch</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				RXh0ZXJuYWw=
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>AppleAHCIPort</string>
+				<key>Replace</key>
+				<data>
+				SW50ZXJuYWw=
+				</data>
+			</dict>
 		</array>
+	</dict>
+	<key>RtVariables</key>
+	<dict>
+		<key>ROM</key>
+		<data>
+		hm+BFD43
+		</data>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>05/25/2019</string>
+		<string>07/26/2019</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MP61.88Z.F000.B00.1905251553</string>
+		<string>IMP11.88Z.F000.B00.1907261958</string>
 		<key>Board-ID</key>
-		<string>Mac-F60DEB81FF30ACF6</string>
+		<string>Mac-7BA5B2D9E42DDD94</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>F5K521802CDFHDDJA</string>
+		<string>C02736130QXJG361F</string>
 		<key>BoardType</key>
-		<integer>11</integer>
+		<integer>10</integer>
 		<key>BoardVersion</key>
 		<string>1.0</string>
 		<key>ChassisAssetTag</key>
-		<string>Pro-Enclosure</string>
+		<string>iMacPro-Aluminum</string>
 		<key>ChassisManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>ChassisType</key>
-		<string>0x02</string>
+		<string>0x09</string>
 		<key>EfiVersion</key>
-		<string>131.0.0.0.0</string>
+		<string>1037.0.39.151.1</string>
 		<key>Family</key>
-		<string>MacPro</string>
+		<string>iMac Pro</string>
 		<key>FirmwareFeatures</key>
-		<string>0xE80FE137</string>
+		<string>0xFD8FF53F</string>
 		<key>FirmwareFeaturesMask</key>
-		<string>0xFF1FFF3F</string>
+		<string>0xFF9FFF3F</string>
 		<key>LocationInChassis</key>
 		<string>Part Component</string>
 		<key>Manufacturer</key>
@@ -566,13 +737,13 @@
 		<key>Mobile</key>
 		<false/>
 		<key>PlatformFeature</key>
-		<string>0x04</string>
+		<string>0x00</string>
 		<key>ProductName</key>
-		<string>MacPro6,1</string>
+		<string>iMacPro1,1</string>
 		<key>SerialNumber</key>
-		<string>F5KPRQY0F9VM</string>
+		<string>C02VCWZVHX87</string>
 		<key>SmUUID</key>
-		<string>081B2300-9FF9-46D0-B94E-2F17C5143E37</string>
+		<string>E834E80D-1A9A-45E6-8121-8467C820B04F</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
